@@ -1,3 +1,4 @@
+using EDUCATION.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace EDUCATION
 {
@@ -26,6 +28,11 @@ namespace EDUCATION
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSwaggerGen(s => { s.SwaggerDoc("v1", new OpenApiInfo { Title = "Family Finance API", Version = "v1" }); });
+
+            services.AddTransient<UsersService>();
+            services.AddTransient<QuestionsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +48,12 @@ namespace EDUCATION
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Family Finance API V1");
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
