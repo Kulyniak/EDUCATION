@@ -9,5 +9,15 @@ namespace EDUCATION.Models.Base
 
         [JsonProperty("message")]
         public string Message { get; set; } = "";
+
+        //private string _testProp;
+        //public string TestProp
+        //{
+        //    get => _testProp;
+        //    set
+        //    {
+        //        this._testProp = value;
+        //    }
+        //}
     }
 }
