@@ -9,3 +9,4 @@ namespace EDUCATION.Entities
         public bool IsDeleted { get; set; }
     }
 }
+
