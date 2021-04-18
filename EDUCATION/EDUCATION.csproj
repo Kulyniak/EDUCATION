@@ -30,6 +30,20 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\models\api-response.model.ts" />
+    <None Remove="ClientApp\src\app\models\questions\api-question.model.ts" />
+    <None Remove="ClientApp\src\app\models\questions\get-questions-response.model.ts" />
+    <None Remove="ClientApp\src\app\services\api.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\api-response.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\questions\api-question.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\questions\get-questions-response.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\api.service.ts" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
