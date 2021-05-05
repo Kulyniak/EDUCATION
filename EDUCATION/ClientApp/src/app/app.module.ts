@@ -12,6 +12,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { QuestionsComponent } from './questions/questions.component';
+import { QuestionsModule } from './questions/questions.module';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -21,7 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeComponent,
     FetchDataComponent,
     FaqComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,12 +32,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    QuestionsModule,
+    MatTableModule,
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'faq', component: FaqComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'questions', component: QuestionsComponent },
     ]),
     BrowserAnimationsModule
   ],
