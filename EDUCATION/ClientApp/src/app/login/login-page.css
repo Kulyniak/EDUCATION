@@ -183,10 +183,6 @@ input[type=email], input[type=password] {
     outline: none;
   }
 
-input.ng-touched.ng-invalid {
-  border-color: red;
-}
-
 hr {
   border: 0px solid #f1f1f1;
   margin-bottom: 5px;
