@@ -9,6 +9,7 @@ namespace EDUCATION.Models
 
         public DbSet<Question> Questions { get; set; }
 
+
         public EFDbContext()
         {
             Database.EnsureCreated();
